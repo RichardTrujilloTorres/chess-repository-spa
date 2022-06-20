@@ -17,7 +17,7 @@ const UserModule = {
         },
         fetchUser(context) {
             if (! context.state.user) {
-                auth.fetch()
+                return auth.fetch()
                     .then(res => {
                         context.dispatch('setUser', res.data.data.user)
                     })
@@ -25,6 +25,10 @@ const UserModule = {
                         console.log(err)
                     })
             }
+
+            return new Promise((resolve) => {
+                resolve(auth.user())
+            })
         }
     },
     getters: {
