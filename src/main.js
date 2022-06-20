@@ -29,5 +29,15 @@ app.component('common_navbar', Navbar)
 app.component('common_search', Search)
 
 
-app.use(store).use(router).mount('#app')
+import http from './http'
+http(app)
 
+import authSetup from "./auth";
+export const auth = authSetup(app)
+
+app.use(store)
+    .use(router)
+    .use(auth)
+    .mount('#app')
+
+export default app
