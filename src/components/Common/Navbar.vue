@@ -11,7 +11,7 @@
           <span class="navbar-toggler-bar bar3"></span>
         </button>
       </div>
-      <div class="collapse navbar-collapse justify-content-end" id="navigation">
+      <div v-if="$auth.check()" class="collapse navbar-collapse justify-content-end" id="navigation">
         <ul class="navbar-nav">
           <common_search></common_search>
 
@@ -47,7 +47,10 @@ export default {
       console.log('language modal')
     },
     onLogout() {
-      console.log('logout')
+      this.$auth.logout({
+        makeRequest: true,
+        redirect: {name: 'Login'}
+      })
     },
   },
 }
