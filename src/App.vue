@@ -22,7 +22,10 @@
 
   <common_navbar :app-name="appName"></common_navbar>
 
-  <router-view></router-view>
+  <div v-if="!$auth.ready()">
+    Loading...
+  </div>
+  <router-view v-if="$auth.ready()"></router-view>
 
   </body>
 
