@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar navbar-expand-lg fixed-top navbar-brand" color-on-scroll="300">
+  <nav class="navbar navbar-expand-lg fixed-top bg-dark" color-on-scroll="300">
     <div class="container">
       <div class="navbar-translate">
         <router-link class="navbar-brand" to="/" rel="tooltip" data-placement="bottom">
