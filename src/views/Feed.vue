@@ -8,13 +8,13 @@
 <!--            <h5 class="description"></h5>-->
             <br>
 
-            <div v-for="game in games" :key="game.id" class="card" style="width: 20rem;">
-              <div class="card-body">
+            <div v-for="game in games" :key="game.id" class="card" style="width: 30rem;">
+              <div @click="onShowGame(game.id)" class="card-body">
                 <h4 class="card-title">Result: {{ game.result }}</h4>
-<!--                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>-->
-                <p class="card-text">
-                {{ game.moves }}
-                </p>
+                <br>
+                <div class="card-text">
+                  <div :id="`board-${game.id}`" style="width: 400px"></div>
+                </div>
               </div>
             </div>
 
@@ -37,16 +37,29 @@
 
 import {mapActions, mapGetters} from "vuex";
 
+import chessMoments from 'chess-moments';
+import ChessBoard from "chessboardjs-vue";
+
 export default {
   name: 'Feed',
   components: {
   },
+  data: () => ({
+  }),
   computed: {
     ...mapGetters({
       games: 'gameModule/getGames',
       user: 'userModule/getUser',
       canLoadMore: 'gameModule/canLoadMore',
     }),
+  },
+  watch: {
+    games(newGames, oldGames) {
+      const gamesRenderedIds = oldGames.map((game) => game.id)
+      const gamesToRender = newGames.filter(game => !gamesRenderedIds.includes(game.id))
+
+      this.$nextTick(() => gamesToRender.forEach(game => this.onDisplayGame(game)))
+    },
   },
   methods: {
     ...mapActions({
@@ -55,6 +68,17 @@ export default {
     }),
     onLoadMore() {
       this.fetchGames(this.user.id)
+    },
+    getEndPosition(pgn) {
+      const moment = chessMoments.flat(pgn)
+
+      return moment[moment.length - 1].fen
+    },
+    onDisplayGame(game) {
+      ChessBoard(`board-${game.id}`, this.getEndPosition(game.moves))
+    },
+    onShowGame(id) {
+      console.log('show game' + id)
     },
   },
   beforeRouteEnter(to, from, next) {
