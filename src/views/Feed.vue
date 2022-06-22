@@ -78,7 +78,7 @@ export default {
       ChessBoard(`board-${game.id}`, this.getEndPosition(game.moves))
     },
     onShowGame(id) {
-      console.log('show game' + id)
+      this.$router.push({name: 'Game', params: {id}})
     },
   },
   beforeRouteEnter(to, from, next) {
