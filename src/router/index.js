@@ -2,12 +2,21 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Profile from "../views/Profile";
 import Feed from "../views/Feed";
 import Login from "../views/Login";
+import Game from "../views/Game";
 
 const routes = [
   {
     path: '/',
     name: 'Feed',
     component: Feed,
+    meta: {
+      auth: true,
+    },
+  },
+  {
+    path: '/games/:id',
+    name: 'Game',
+    component: Game,
     meta: {
       auth: true,
     },
