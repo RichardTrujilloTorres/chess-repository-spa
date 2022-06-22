@@ -1,7 +1,7 @@
 import app from "../main";
 import {
     APPEND_GAMES,
-    CAN_LOAD_MORE,
+    CAN_LOAD_MORE, SET_CURRENT_GAME,
     SET_CURRENT_PAGE,
     SET_NEXT_PAGE,
     UPDATE_PAGINATION
@@ -11,6 +11,7 @@ const GameModule = {
     namespaced: true,
     state: () => ({
         games: [],
+        currentGame: null,
         currentPage: 1,
         nextPage: 1,
         canLoadMore: true,
@@ -32,6 +33,11 @@ const GameModule = {
             state.currentPage = currentPage
             state.nextPage = currentPage + 1
             state.canLoadMore = nextPageUrl !== null
+        },
+        [SET_CURRENT_GAME] (state, game) {
+            console.log('set current game')
+            console.log(game)
+            state.currentGame = game
         },
     },
     actions: {
@@ -56,10 +62,22 @@ const GameModule = {
                     console.log(err)
                 })
         },
+        fetchGame(context, id) {
+            app.axios.get(`/games/${id}`)
+                .then(res => {
+                    context.commit(SET_CURRENT_GAME, res.data.data.game)
+                })
+                .catch(err => {
+                    console.log(err)
+                })
+        },
     },
     getters: {
         getGames(state) {
             return state.games
+        },
+        getCurrentGame(state) {
+            return state.currentGame
         },
         canLoadMore(state) {
             return state.canLoadMore
