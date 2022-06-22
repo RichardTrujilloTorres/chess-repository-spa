@@ -86,8 +86,9 @@ export default {
       vm.fetchUser()
         .then(() => {
           vm.fetchGames(vm.user.id)
+          vm.$nextTick(() => vm.games.forEach(game => vm.onDisplayGame(game)))
         })
     })
-  }
+  },
 }
 </script>
