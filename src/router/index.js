@@ -3,12 +3,24 @@ import Profile from "../views/Profile";
 import Feed from "../views/Feed";
 import Login from "../views/Login";
 import Game from "../views/Game";
+import Upload from "../views/Upload";
 
 const routes = [
   {
     path: '/',
     name: 'Feed',
     component: Feed,
+    meta: {
+      auth: true,
+    },
+  },
+  {
+    path: '/games/upload',
+    name: 'Upload',
+    component: Upload,
+    props: {
+      uploadUrl: `${process.env.MIX_APP_URL}/games`,
+    },
     meta: {
       auth: true,
     },

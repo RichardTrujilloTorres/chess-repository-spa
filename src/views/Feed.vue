@@ -2,8 +2,29 @@
   <div class="main">
     <div class="section text-center">
       <div class="container">
+
         <div class="row" v-if="user">
-          <div class="col-md-8 ml-auto mr-auto" v-if="games.length">
+
+          <div class="col-md-8 ml-auto mr-auto">
+          <div class="card card-nav-tabs">
+            <div class="card-header card-header-warning">
+            </div>
+            <div class="card-body">
+              <h4 class="card-title">Got more games lately?</h4>
+<!--              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>-->
+                  <p class="card-text"></p>
+              <router-link :to="{name: 'Upload'}" class="btn btn-default">Upload</router-link>
+            </div>
+          </div>
+          </div>
+
+        </div>
+
+
+
+
+        <div class="row" v-if="user">
+        <div class="col-md-8 ml-auto mr-auto" v-if="games.length">
 <!--            <h2 class="title">Upload Game (action)</h2>-->
 <!--            <h5 class="description"></h5>-->
             <br>
