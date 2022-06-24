@@ -24,17 +24,16 @@
 
 
         <div class="row" v-if="user">
+        <div class="col-md-8 ml-auto mr-auto" v-if="loading">
+          <h2 class="title">Loading...</h2>
+        </div>
         <div class="col-md-8 ml-auto mr-auto" v-if="games.length">
-<!--            <h2 class="title">Upload Game (action)</h2>-->
-<!--            <h5 class="description"></h5>-->
-            <br>
-
-            <div v-for="game in games" :key="game.id" class="card" style="width: 30rem;">
+            <div v-for="game in games" :key="game.id" class="card">
               <div @click="onShowGame(game.id)" class="card-body">
                 <h4 class="card-title">Result: {{ game.result }}</h4>
                 <br>
                 <div class="card-text">
-                  <div :id="`board-${game.id}`" style="width: 400px"></div>
+                  <div :id="`board-${game.id}`"></div>
                 </div>
               </div>
             </div>
@@ -43,7 +42,7 @@
             <button :disabled="!canLoadMore" @click.prevent="onLoadMore" href="" class="btn btn-default btn-round">Load More</button>
           </div>
 
-          <div class="col-md-8 ml-auto mr-auto" v-if="!games.length">
+          <div class="col-md-8 ml-auto mr-auto" v-if="!games.length && !loading">
             <h2 class="title">You have no games yet.</h2>
           </div>
         </div>
@@ -72,6 +71,7 @@ export default {
       games: 'gameModule/getGames',
       user: 'userModule/getUser',
       canLoadMore: 'gameModule/canLoadMore',
+      loading: 'isLoading',
     }),
   },
   watch: {
