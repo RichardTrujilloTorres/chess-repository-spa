@@ -25,6 +25,9 @@
   <div v-if="!$auth.ready()">
     Loading...
   </div>
+
+  <common_loader v-if="$auth.ready()"></common_loader>
+
   <router-view v-if="$auth.ready()"></router-view>
 
   </body>
@@ -46,10 +49,15 @@
 
 <script>
 
+import {mapGetters} from "vuex";
+
 export default {
   name: 'App',
   components: {},
   computed: {
+    ...mapGetters({
+      user: 'userModule/getUser',
+    }),
     appName() {
       return process.env.VUE_APP_NAME
     },

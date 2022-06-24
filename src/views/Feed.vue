@@ -20,8 +20,6 @@
         </div>
 
         <div class="row" v-if="user">
-          <common_loader></common_loader>
-
           <div class="col-md-8 ml-auto mr-auto" v-if="games.length">
               <div v-for="game in games" :key="game.id" class="card">
                 <div @click="onShowGame(game.id)" class="card-body">
