@@ -12,6 +12,9 @@ registration(app)
 import http from './http'
 http(app)
 
+import emitter from "./common/emitter";
+app.config.globalProperties.$emitter = emitter
+
 import authSetup from "./auth";
 export const auth = authSetup(app)
 
