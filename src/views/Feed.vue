@@ -17,28 +17,23 @@
             </div>
           </div>
           </div>
-
         </div>
-
-
-
 
         <div class="row" v-if="user">
-        <div class="col-md-8 ml-auto mr-auto" v-if="loading">
-          <h2 class="title">Loading...</h2>
-        </div>
-        <div class="col-md-8 ml-auto mr-auto" v-if="games.length">
-            <div v-for="game in games" :key="game.id" class="card">
-              <div @click="onShowGame(game.id)" class="card-body">
-                <h4 class="card-title">Result: {{ game.result }}</h4>
-                <br>
-                <div class="card-text">
-                  <div :id="`board-${game.id}`"></div>
+          <common_loader></common_loader>
+
+          <div class="col-md-8 ml-auto mr-auto" v-if="games.length">
+              <div v-for="game in games" :key="game.id" class="card">
+                <div @click="onShowGame(game.id)" class="card-body">
+                  <h4 class="card-title">Result: {{ game.result }}</h4>
+                  <br>
+                  <div class="card-text">
+                    <div :id="`board-${game.id}`"></div>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <br>
+              <br>
             <button :disabled="!canLoadMore" @click.prevent="onLoadMore" href="" class="btn btn-default btn-round">Load More</button>
           </div>
 
@@ -54,9 +49,7 @@
 </template>
 
 <script>
-
 import {mapActions, mapGetters} from "vuex";
-
 import chessMoments from 'chess-moments';
 import ChessBoard from "chessboardjs-vue";
 
