@@ -18,9 +18,13 @@ app.config.globalProperties.$emitter = emitter
 import authSetup from "./auth";
 export const auth = authSetup(app)
 
+import bridge from "./common/bridge";
+bridge()
+
 app.use(store)
     .use(router)
     .use(auth)
     .mount('#app')
+
 
 export default app
