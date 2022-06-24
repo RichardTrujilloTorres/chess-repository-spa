@@ -1,7 +1,11 @@
 export const SET_USER = 'SET_USER'
+
+export const SET_LOADING = 'SET_LOADING'
+
 export const APPEND_GAMES = 'APPEND_GAMES'
 export const CAN_LOAD_MORE = 'CAN_LOAD_MORE '
 export const UPDATE_PAGINATION = 'UPDATE_PAGINATION'
 export const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE'
 export const SET_NEXT_PAGE = 'SET_NEXT_PAGE'
 export const SET_CURRENT_GAME = 'SET_CURRENT_GAME '
+
