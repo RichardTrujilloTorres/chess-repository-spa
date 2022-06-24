@@ -7,7 +7,7 @@
           <div class="col-md-8 ml-auto mr-auto">
 
             <h4 class="card-title">Result: {{ game.result }}</h4>
-            <div :id="`board-${game.id}`" style="width: 600px"></div>
+            <div :id="`board-${game.id}`"></div>
             <br>
 
             <button @click.prevent="onPreviousMove" class="btn btn-sm btn-default btn-round">Previous</button>
