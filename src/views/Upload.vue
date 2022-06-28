@@ -24,7 +24,7 @@
                     />
                   </div>
 
-                  <button :disabled="!fileContent" @click.prevent="onUpload" href="" class="btn btn-default btn-round">Upload</button>
+                  <button :disabled="!fileContent" @click.prevent="onUpload" href="" class="btn btn-default btn-round">{{ $t('actions.upload') }}</button>
                 </div>
               </div>
             </div>
@@ -61,6 +61,7 @@ export default {
   computed: {
     ...mapGetters({
       game: 'gameModule/getCurrentGame',
+      user: 'userModule/getUser',
     }),
   },
   methods: {
@@ -68,8 +69,6 @@ export default {
       fetchGame: 'gameModule/fetchGame',
     }),
     onAddedFile(item) {
-      // TODO check type and other
-
       const reader = new FileReader()
       reader.addEventListener('load', event => {
         this.fileContent = event.target.result

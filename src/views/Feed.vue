@@ -10,10 +10,10 @@
             <div class="card-header card-header-warning">
             </div>
             <div class="card-body">
-              <h4 class="card-title">Got more games lately?</h4>
+              <h4 class="card-title">{{ $t('feed.gotMoreGames') }}</h4>
 <!--              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>-->
                   <p class="card-text"></p>
-              <router-link :to="{name: 'Upload'}" class="btn btn-default">Upload</router-link>
+              <router-link :to="{name: 'Upload'}" class="btn btn-default">{{ $t('actions.upload') }}</router-link>
             </div>
           </div>
           </div>
@@ -32,11 +32,11 @@
               </div>
 
               <br>
-            <button :disabled="!canLoadMore" @click.prevent="onLoadMore" href="" class="btn btn-default btn-round">Load More</button>
+            <button :disabled="!canLoadMore" @click.prevent="onLoadMore" href="" class="btn btn-default btn-round">{{ $t('actions.loadMore') }}</button>
           </div>
 
           <div class="col-md-8 ml-auto mr-auto" v-if="!games.length && !loading">
-            <h2 class="title">You have no games yet.</h2>
+            <h2 class="title">{{ $t('feed.noGamesYet') }}</h2>
           </div>
         </div>
         <br/>

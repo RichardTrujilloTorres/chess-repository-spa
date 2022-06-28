@@ -16,14 +16,22 @@
           <common_search></common_search>
 
           <li class="nav-item dropdown">
+            <a class="nav-link" href="" id="localeDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              {{ $t('language.language') }}
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="localeDropdown">
+              <span v-for="locale in locales" :key="locale" @click.prevent="onSetLocale(locale)" class="dropdown-item">{{ locale }}</span>
+            </div>
+          </li>
+
+          <li class="nav-item dropdown" v-if="user">
             <a class="nav-link" href="" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i class="nc-icon nc-single-02"> username</i>
+              <i class="nc-icon nc-single-02"> {{ user.name }}</i>
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-              <router-link class="dropdown-item" to="/profile">Profile</router-link>
-              <router-link @click.prevent="onShowLanguageSelectionModal" class="dropdown-item" to="">Language</router-link>
+              <router-link class="dropdown-item" to="/profile">{{ $t('user.profile') }}</router-link>
 <!--              <router-link class="dropdown-item" to="">Notifications</router-link>-->
-              <router-link @click.prevent="onLogout" class="dropdown-item" to="">Logout</router-link>
+              <router-link @click.prevent="onLogout" class="dropdown-item" to="">{{ $t('auth.logout') }}</router-link>
             </div>
           </li>
 
@@ -34,6 +42,9 @@
 </template>
 
 <script>
+import i18n, {LOCALES} from "../../i18n/i18n";
+import {mapGetters} from "vuex";
+
 export default {
   name: 'Navbar',
   props: {
@@ -42,9 +53,17 @@ export default {
       required: false,
     },
   },
+  data: () => ({
+    locales: LOCALES,
+  }),
+  computed: {
+    ...mapGetters({
+      user: 'userModule/getUser',
+    }),
+  },
   methods: {
-    onShowLanguageSelectionModal() {
-      console.log('language modal')
+    onSetLocale(locale) {
+      i18n.global.locale = locale
     },
     onLogout() {
       this.$auth.logout({
