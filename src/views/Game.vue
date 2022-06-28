@@ -2,20 +2,18 @@
   <div class="main">
     <div class="section text-center">
       <div class="container">
-
         <div class="row" v-if="game">
           <div class="col-md-8 ml-auto mr-auto">
 
-            <h4 class="card-title">Result: {{ game.result }}</h4>
+            <h4 class="card-title">{{ $t('game.result') }}: {{ game.result }}</h4>
             <div :id="`board-${game.id}`"></div>
             <br>
 
-            <button @click.prevent="onPreviousMove" class="btn btn-sm btn-default btn-round">Previous</button>
-            <button @click.prevent="onNextMove" class="btn btn-sm btn-default btn-round">Next</button>
+            <button @click.prevent="onPreviousMove" class="btn btn-sm btn-default btn-round">{{ $t('game.moves.previous') }}</button>
+            <button @click.prevent="onNextMove" class="btn btn-sm btn-default btn-round">{{ $t('game.moves.next') }}</button>
             <button @click.prevent="onFlipBoard" class="btn btn-sm btn-default btn-round">
               <i class="nc-icon nc-refresh-69"></i>
             </button>
-
 
           </div>
 
