@@ -3,6 +3,7 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import './assets/template/templateSetup.js';
+import i18n from "./i18n/i18n";
 
 const app = createApp(App)
 
@@ -27,6 +28,7 @@ bootstrapServices(app)
 app.use(store)
     .use(router)
     .use(auth)
+    .use(i18n)
     .mount('#app')
 
 
