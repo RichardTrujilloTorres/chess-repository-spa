@@ -11,10 +11,16 @@ export default (app) => {
     app.axios.interceptors.request.use(config => {
         emitter.emit(LOADING, true)
         return config
-    }, err => Promise.reject(err))
+    }, err => {
+        emitter.emit(LOADING, false)
+        Promise.reject(err)
+    })
 
     app.axios.interceptors.response.use(res => {
         emitter.emit(LOADING, false)
         return res
-    }, err => Promise.reject(err))
+    }, err => {
+        emitter.emit(LOADING, false)
+        Promise.reject(err)
+    })
 }
