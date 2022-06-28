@@ -35,8 +35,6 @@ const GameModule = {
             state.canLoadMore = nextPageUrl !== null
         },
         [SET_CURRENT_GAME] (state, game) {
-            console.log('set current game')
-            console.log(game)
             state.currentGame = game
         },
     },
