@@ -19,36 +19,20 @@
   </head>
 
   <body class="landing-page sidebar-collapse">
+    <common_navbar :app-name="appName"></common_navbar>
+  <!--  <div v-if="!$auth.ready()">-->
+  <!--    Loading...-->
+  <!--  </div>-->
 
-  <common_navbar :app-name="appName"></common_navbar>
-
-  <div v-if="!$auth.ready()">
-    Loading...
-  </div>
-
-  <common_loader v-if="$auth.ready()"></common_loader>
-
-  <router-view v-if="$auth.ready()"></router-view>
-
+  <!--  <common_loader v-if="$auth.ready()"></common_loader>-->
+    <common_loader></common_loader>
+  <!--  <router-view v-if="$auth.ready()"></router-view>-->
+    <router-view></router-view>
   </body>
-
   </html>
-
-
-
-
-
-
-
-<!--  <div id="nav">-->
-<!--    <router-link to="/">Home</router-link> |-->
-<!--    <router-link to="/about">About</router-link>-->
-<!--  </div>-->
-<!--  <router-view/>-->
 </template>
 
 <script>
-
 import {mapGetters} from "vuex";
 
 export default {
