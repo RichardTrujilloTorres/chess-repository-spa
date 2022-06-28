@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import {mapGetters} from "vuex";
+import {mapActions, mapGetters} from "vuex";
 
 export default {
   name: 'App',
@@ -45,7 +45,15 @@ export default {
     appName() {
       return process.env.VUE_APP_NAME
     },
-  }
+  },
+  methods: {
+    ...mapActions({
+      fetchUser: 'userModule/fetchUser',
+    }),
+  },
+  async mounted() {
+    await this.fetchUser()
+  },
 }
 </script>
 
