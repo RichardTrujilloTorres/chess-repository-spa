@@ -52,9 +52,11 @@ export default {
       })
       .then(res => {
         this.setUser(res.data.data.user)
+        this.toastService.success(`Profile updated!`)
       })
       .catch(err => {
         console.log(err)
+        this.toastService.error(`Could not update profile.`)
       })
     },
   },
