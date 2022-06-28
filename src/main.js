@@ -21,6 +21,9 @@ export const auth = authSetup(app)
 import bridge from "./common/bridge";
 bridge()
 
+import bootstrapServices from "./services";
+bootstrapServices(app)
+
 app.use(store)
     .use(router)
     .use(auth)
