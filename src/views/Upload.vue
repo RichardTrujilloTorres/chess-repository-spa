@@ -72,7 +72,6 @@ export default {
       const reader = new FileReader()
       reader.addEventListener('load', event => {
         this.fileContent = event.target.result
-        console.log(event.target.result)
       })
       reader.readAsText(item.file)
     },
@@ -80,8 +79,18 @@ export default {
       this.fileContent = null
     },
     onUpload() {
-      console.log('upload')
-      console.log(this.fileContent)
+      this.axios.post(`/games`, {
+        user_id: this.user.id,
+        moves: this.fileContent,
+      })
+        .then(() => {
+          this.toastService.success(this.$t(`messages.game.uploaded`))
+          setTimeout(() => this.$router.push({name: 'Feed'}), 500)
+        })
+        .catch(err => {
+          console.log(err)
+          this.toastService.error(this.$t(`messages.game.couldNotUploadGame`))
+        })
     },
   },
 }
