@@ -27,6 +27,12 @@ const en = {
             next: 'Next',
         },
     },
+    messages: {
+        game: {
+            uploaded: 'Game uploaded!',
+            couldNotUpload: 'Could not upload game',
+        },
+    },
 }
 
 export default en

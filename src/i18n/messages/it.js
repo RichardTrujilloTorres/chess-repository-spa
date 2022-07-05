@@ -27,6 +27,12 @@ const it = {
             next: 'Prossimo',
         },
     },
+    messages: {
+        game: {
+            uploaded: 'Partita caricata!',
+            couldNotUpload: 'Non si è potuto caricare la partita',
+        },
+    },
 }
 
 export default it
