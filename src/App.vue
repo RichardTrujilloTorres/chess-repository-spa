@@ -51,9 +51,6 @@ export default {
       fetchUser: 'userModule/fetchUser',
     }),
   },
-  async mounted() {
-    await this.fetchUser()
-  },
 }
 </script>
 

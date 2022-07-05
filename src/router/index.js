@@ -4,6 +4,7 @@ import Feed from "../views/Feed";
 import Login from "../views/Login";
 import Game from "../views/Game";
 import Upload from "../views/Upload";
+import store from '../store'
 
 const routes = [
   {
@@ -61,5 +62,8 @@ const router = createRouter({
   routes
 })
 
+router.beforeEach(() => {
+  store.dispatch('userModule/fetchUser')
+})
 
 export default router
