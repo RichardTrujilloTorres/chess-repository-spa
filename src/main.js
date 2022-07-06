@@ -25,6 +25,10 @@ bridge()
 import bootstrapServices from "./services";
 bootstrapServices(app)
 
+
+import InstantSearch from "vue-instantsearch/vue3/es";
+app.use(InstantSearch)
+
 app.use(store)
     .use(router)
     .use(auth)
