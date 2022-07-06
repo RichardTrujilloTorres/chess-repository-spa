@@ -81,6 +81,7 @@ export default {
         this.fetchUser()
       })
       .catch(err => {
+        this.toastService.error(this.$t('messages.auth.invalidCredentials'))
         console.log(err)
       })
     },
