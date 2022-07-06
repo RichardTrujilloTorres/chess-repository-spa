@@ -44,9 +44,6 @@ const GameModule = {
         },
         fetchGames(context, userId) {
             app.axios.get(`/games?user_id=${userId}&page=${context.state.nextPage}`, {
-                // headers: {
-                //     'Authentication': `Bearer ${auth.token()}`,
-                // }
             })
                 .then(res => {
                     context.dispatch('appendGames', res.data.data.games.data)
