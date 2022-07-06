@@ -9,12 +9,13 @@
 
 <script>
 export default {
-  name: 'Navbar',
+  name: 'Search',
   props: {
   },
   methods: {
     onSearch() {
-      console.log('show search modal')
+      this.$router.push({name: 'Search'})
+      // console.log('show search modal')
     },
   },
 }
