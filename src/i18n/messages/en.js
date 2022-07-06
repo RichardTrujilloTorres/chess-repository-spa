@@ -18,7 +18,7 @@ const en = {
     },
     feed: {
         gotMoreGames: 'Got more games lately?',
-        noGamesYet: 'You have no games yet.',
+        noGamesYet: 'You have no games yet',
     },
     game: {
         result: 'Result',
@@ -31,6 +31,13 @@ const en = {
         game: {
             uploaded: 'Game uploaded!',
             couldNotUpload: 'Could not upload game',
+        },
+        auth: {
+            invalidCredentials: 'Invalid credentials',
+        },
+        profile: {
+            updated: 'Profile updated!',
+            couldNotUpdate: 'Could not update profile',
         },
     },
 }

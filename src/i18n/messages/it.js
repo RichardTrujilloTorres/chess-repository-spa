@@ -32,6 +32,13 @@ const it = {
             uploaded: 'Partita caricata!',
             couldNotUpload: 'Non si è potuto caricare la partita',
         },
+        auth: {
+            invalidCredentials: 'Invalid credentials',
+        },
+        profile: {
+            updated: 'Profilo aggiornato!',
+            couldNotUpdate: 'Non è stato possible aggiornare il profilo',
+        },
     },
 }
 
