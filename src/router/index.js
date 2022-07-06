@@ -5,6 +5,7 @@ import Login from "../views/Login";
 import Game from "../views/Game";
 import Upload from "../views/Upload";
 import store from '../store'
+import Search from "../views/Search";
 
 const routes = [
   {
@@ -46,6 +47,14 @@ const routes = [
     path: '/login',
     name: 'Login',
     component: Login,
+  },
+  {
+    path: '/search',
+    name: 'Search',
+    component: Search,
+    meta: {
+      auth: true,
+    },
   },
   {
     path: '/about',
