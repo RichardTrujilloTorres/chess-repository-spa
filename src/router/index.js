@@ -62,8 +62,8 @@ const router = createRouter({
   routes
 })
 
-router.beforeEach(() => {
-  store.dispatch('userModule/fetchUser')
+router.beforeEach(async () => {
+  await store.dispatch('userModule/fetchUser')
 })
 
 export default router
