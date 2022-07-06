@@ -1,6 +1,7 @@
 import axios from "axios";
 import {LOADING} from "../common/events";
 import emitter from "../common/emitter";
+import router from "../router";
 
 axios.defaults.baseURL = process.env.VUE_APP_API_BASE_URL
 
@@ -20,6 +21,9 @@ export default (app) => {
         emitter.emit(LOADING, false)
         return res
     }, err => {
+        if (err.status === 401) {
+            router.push({name: 'Login'})
+        }
         emitter.emit(LOADING, false)
         Promise.reject(err)
     })
