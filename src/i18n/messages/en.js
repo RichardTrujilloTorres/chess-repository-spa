@@ -26,11 +26,15 @@ const en = {
             previous: 'Previous',
             next: 'Next',
         },
+        screenshot: {
+            download: 'Download screenshot',
+        },
     },
     messages: {
         game: {
             uploaded: 'Game uploaded!',
             couldNotUpload: 'Could not upload game',
+            couldNotDownloadScreenshot: 'Could not download screenshot',
         },
         auth: {
             invalidCredentials: 'Invalid credentials',

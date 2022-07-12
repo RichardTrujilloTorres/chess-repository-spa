@@ -26,11 +26,15 @@ const it = {
             previous: 'Precedente',
             next: 'Prossimo',
         },
+        screenshot: {
+            download: 'Scarica screenshot',
+        },
     },
     messages: {
         game: {
             uploaded: 'Partita caricata!',
             couldNotUpload: 'Non si è potuto caricare la partita',
+            couldNotDownloadScreenshot: 'Impossibile scaricare lo screenshot',
         },
         auth: {
             invalidCredentials: 'Invalid credentials',
