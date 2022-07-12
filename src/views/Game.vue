@@ -15,6 +15,9 @@
               <i class="nc-icon nc-refresh-69"></i>
             </button>
 
+            <br/>
+            <br/>
+            <button @click.prevent="onDownloadGif" class="btn btn-sm btn-link">{{ $t('game.screenshot.download') }}</button>
           </div>
 
         </div>
@@ -31,6 +34,7 @@ import chessMoments from "chess-moments";
 
 export default {
   name: 'Game',
+  inject: ['mediaService'],
   components: {
   },
   data: () => ({
@@ -75,6 +79,22 @@ export default {
     },
     onFlipBoard() {
       this.chessboard.orientation('flip')
+    },
+    onDownloadGif() {
+      this.mediaService.positionScreenshot(this.moment[this.currentMoveIndex].fen)
+        .then(res => {
+          this.displayScreenshot(res.data)
+        })
+        .catch(err => {
+          this.toastService.error(this.$t('messages.game.couldNotDownloadScreenshot'))
+          console.log(err)
+        })
+    },
+    displayScreenshot(data) {
+      const screenshot = new Image()
+      const w = window.open('')
+      screenshot.src = URL.createObjectURL(data)
+      w.document.write(screenshot.outerHTML)
     },
   },
 }
