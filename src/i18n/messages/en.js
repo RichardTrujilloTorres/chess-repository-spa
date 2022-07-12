@@ -29,12 +29,16 @@ const en = {
         screenshot: {
             generate: 'Generate screenshot',
         },
+        gif: {
+            generate: 'Generate GIF',
+        },
     },
     messages: {
         game: {
             uploaded: 'Game uploaded!',
             couldNotUpload: 'Could not upload game',
             couldNotGenerateScreenshot: 'Could not generate screenshot',
+            couldNotGenerateGameGif: 'Could not generate game GIF',
         },
         auth: {
             invalidCredentials: 'Invalid credentials',

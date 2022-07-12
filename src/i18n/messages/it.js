@@ -29,12 +29,16 @@ const it = {
         screenshot: {
             generate: 'Genera screenshot',
         },
+        gif: {
+            generate: 'Genera GIF',
+        },
     },
     messages: {
         game: {
             uploaded: 'Partita caricata!',
             couldNotUpload: 'Non si è potuto caricare la partita',
             couldNotGenerateScreenshot: 'Impossibile generare lo screenshot',
+            couldNotGenerateGameGif: 'Impossibile generare il GIF della partita',
         },
         auth: {
             invalidCredentials: 'Invalid credentials',
