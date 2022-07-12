@@ -17,7 +17,7 @@
 
             <br/>
             <br/>
-            <button @click.prevent="onDownloadGif" class="btn btn-sm btn-link">{{ $t('game.screenshot.download') }}</button>
+            <button @click.prevent="onGenerateGif" class="btn btn-sm btn-link">{{ $t('game.screenshot.generate') }}</button>
           </div>
 
         </div>
@@ -80,13 +80,13 @@ export default {
     onFlipBoard() {
       this.chessboard.orientation('flip')
     },
-    onDownloadGif() {
+    onGenerateGif() {
       this.mediaService.positionScreenshot(this.moment[this.currentMoveIndex].fen)
         .then(res => {
           this.displayScreenshot(res.data)
         })
         .catch(err => {
-          this.toastService.error(this.$t('messages.game.couldNotDownloadScreenshot'))
+          this.toastService.error(this.$t('messages.game.couldNotGenerateScreenshot'))
           console.log(err)
         })
     },

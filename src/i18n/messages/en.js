@@ -27,14 +27,14 @@ const en = {
             next: 'Next',
         },
         screenshot: {
-            download: 'Download screenshot',
+            generate: 'Generate screenshot',
         },
     },
     messages: {
         game: {
             uploaded: 'Game uploaded!',
             couldNotUpload: 'Could not upload game',
-            couldNotDownloadScreenshot: 'Could not download screenshot',
+            couldNotGenerateScreenshot: 'Could not generate screenshot',
         },
         auth: {
             invalidCredentials: 'Invalid credentials',
