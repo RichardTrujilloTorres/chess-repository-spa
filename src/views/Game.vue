@@ -18,6 +18,7 @@
             <br/>
             <br/>
             <button @click.prevent="onGenerateGif" class="btn btn-sm btn-link">{{ $t('game.screenshot.generate') }}</button>
+            <button @click.prevent="onGenerateGameGif" class="btn btn-sm btn-link">{{ $t('game.gif.generate') }}</button>
           </div>
 
         </div>
@@ -31,6 +32,7 @@
 import {mapActions, mapGetters} from "vuex";
 import ChessBoard from "chessboardjs-vue";
 import chessMoments from "chess-moments";
+import {buildGame} from "../common/lila";
 
 export default {
   name: 'Game',
@@ -95,6 +97,16 @@ export default {
       const w = window.open('')
       screenshot.src = URL.createObjectURL(data)
       w.document.write(screenshot.outerHTML)
+    },
+    onGenerateGameGif() {
+      this.mediaService.gameGif(buildGame(this.moment).game)
+          .then(res => {
+            this.displayScreenshot(res.data)
+          })
+          .catch(err => {
+            this.toastService.error(this.$t('messages.game.couldNotGenerateGameGif'))
+            console.log(err)
+          })
     },
   },
 }
