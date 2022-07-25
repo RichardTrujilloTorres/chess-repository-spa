@@ -17,7 +17,7 @@ const it = {
         loadMore: 'Carica di più',
     },
     feed: {
-        gotMoreGames: 'Hai più giochi ultimamente?',
+        gotMoreGames: 'Hai più partite ultimamente?',
         noGamesYet: 'Non hai ancora delle partite',
     },
     game: {
